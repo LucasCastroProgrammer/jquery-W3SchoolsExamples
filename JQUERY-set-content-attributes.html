@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Configurar conteúdos e atributos</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				$("#test1").text("Hello World!");
+			});
+			$("#btn2").click(function(){
+				$("#test2").html("<b>Hello World!</b>")
+			});
+			$("#btn3").click(function(){
+				$("#test3").val("Dolly Duck");
+			});
+			/*All of the three jQuery methods above: text(), html(), and val(), also come with a callback function. The callback function has two parameters: the index of the current element in the list of elements selected and the original (old) value. You then return the string you wish to use as the new value from the function.*/
+			$("#btn4").click(function(){
+				$("#result1").text(function(i, origText){
+					return "Old text: " + origText + " New text: Hello World! (index: " + i + ")";
+				});
+			});
+			$("#btn5").click(function(){
+				$("#result2").text(function(i, origText){
+					return "Old html: " + origText + " New text: Hello World! (index: " + i + ")";
+				});
+			});
+			/*The jQuery attr() method is also used to set/change attribute values.
+			The following example demonstrates how to change (set) the value of the href attribute in a link.*/
+			$("#btn6").click(function(){
+				$("#w3s").attr({
+					"href" : "https://www.w3schools.com/jquery/",
+					"title" : "W3Schools JQuery Tutorial"
+				});
+				/*The jQuery method attr(), also comes with a callback function. The callback function has two parameters: the index of the current element in the list of elements selected and the original (old) attribute value. You then return the string you wish to use as the new attribute value from the function.*/
+				/*$("#w3s").attr("href", function(i, origValue){
+					return origValue + "/jquery/";
+				});*/
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- We will use the same three methods from the previous page to set content:
+	text() - Sets or returns the text content of selected elements
+	html() - Sets or returns the content of selected elements (including HTML markup)
+	val() - Sets or returns the value of form fields. -->
+	<p id="test1">This is a paragraph.</p>
+	<p id="test2">This is another paragraph.</p>
+
+	<p id="result1">Resultado 1</p>
+	<p id="result2">Resultado 2</p>
+
+	<p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+
+	<p><a href="https://www.w3schools.com" id="w3s" title="Some text">W3Schools.com</a></p>
+
+	<button id="btn1">Set Text</button>
+	<button id="btn2">Set HTML</button>
+	<button id="btn3">Set value</button>
+	<button id="btn4">Show Old/New Text</button>
+	<button id="btn5">Show Old/New HTML</button>
+	<button id="btn6">Mudar valor do HREF</button>
+</body>
+</html>
