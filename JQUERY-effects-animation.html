@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Animações com JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		/*The jQuery animate() method is used to create custom animations.
+		The required params parameter defines the CSS properties to be animated.
+		The optional speed parameter specifies the duration of the effect. It can take the following values: "slow", "fast", or milliseconds.
+		The optional callback parameter is a function to be executed after the animation completes.
+		The following example demonstrates a simple use of the animate() method; it moves a <div> element to the right, until it has reached a left property of 250px.*/
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				/*Notice that multiple properties can be animated at the same time.*/
+				/*It is also possible to define relative values (the value is then relative to the element's current value). This is done by putting += or -= in front of the value.*/
+				/*You can even specify a property's animation value as "show", "hide", or "toggle".*/
+				/*$("#div1").animate({
+					left: '250px',
+					opacity: '0.5',
+					height: '150px',
+					width: '150px'
+				});*/
+				
+				/*By default, jQuery comes with queue functionality for animations.
+				This means that if you write multiple animate() calls after each other, jQuery creates an "internal" queue with these method calls. Then it runs the animate calls ONE by ONE.
+				So, if you want to perform different animations after each other, we take advantage of the queue functionality*/
+				/*var div = $("#div1");
+				div.animate({height: '300px', opacity: '0.4'}, "slow");
+				div.animate({width: '300px', opacity: '0.8'}, "slow");
+				div.animate({height: '100px', opacity: '0.4'}, "slow");
+				div.animate({width: '100px', opacity: '0.8'}, "slow");*/
+
+				/*The example below first moves the <div> element to the right, and then increases the font size of the text.*/
+				$("button").click(function(){
+					var div = $("#div1");
+					div.animate({left: '100px'}, "slow");
+					div.animate({width: '200px'}, "slow");
+					div.animate({fontSize: '3em'}, "slow");
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<!-- With jQuery, you can create custom animations. -->
+	<button id="btn1">Start Animation</button>
+	<br><br>
+	<div id="div1" style="background: #98bf21; height: 100px; width: 100px; position: absolute;">LUCAS</div>
+</body>
+</html>
