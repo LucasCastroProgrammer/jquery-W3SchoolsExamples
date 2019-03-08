@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Efeitos hide e show com JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		/* With jQuery, you can hide and show HTML elements with the hide() and show() methods. */
+		$(document).ready(function(){
+			/*The optional speed parameter specifies the speed of the hiding/showing, and can take the following values: "slow", "fast", or milliseconds.
+			The optional callback parameter is a function to be executed after the hide() or show() method completes (you will learn more about callback functions in a later chapter).
+			The following example demonstrates the speed parameter with hide().*/
+			$("#hide").click(function(){
+				$("p").hide(1000);
+			});
+			$("#show").click(function(){
+				$("p").show(1000);
+			});
+
+			/*You can also toggle between hiding and showing an element with the toggle() method.
+			Shown elements are hidden and hidden elements are shown*/
+			$("#toggle1").click(function(){
+				$("#toggle2").toggle();
+			});
+			/*The optional speed parameter can take the following values: "slow", "fast", or milliseconds.
+			The optional callback parameter is a function to be executed after toggle() completes.*/
+		});
+	</script>
+</head>
+<body>
+	<p>Hello World!</p>
+	<button id="hide">Hide</button>
+	<button id="show">Show</button>
+
+	<br><br>
+	<button id="toggle1">Toggle</button>
+	<p id="toggle2">Hello Brazil!</p>
+</body>
+</html>
