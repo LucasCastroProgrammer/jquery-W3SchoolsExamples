@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Remoção de elementos com JQuery</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				$("#div1").remove();
+			});
+			$("#btn2").click(function(){
+				$("#div2").empty();
+			});
+			$("#btn3").click(function(){
+				$("p").remove(".test1");
+				$("p").remove(".demo");
+			})
+		});
+	</script>
+	<style>
+		.test{
+			color: red;
+			font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- With jQuery, it is easy to remove existing HTML elements. -->
+
+	<!-- To remove elements and content, there are mainly two jQuery methods:
+	remove() - Removes the selected element (and its child elements)
+	empty() - Removes the child elements from the selected element -->
+
+	<!-- The jQuery remove() method removes the selected element(s) and its child elements. -->
+	<div id="div1" style="height: 100px; width: 300px; border: 1px solid black; background-color: yellow; padding: 2px;">
+		<p>This is some text in the div.</p>
+		<p>This is a paragraph in the div.</p>
+		<p>This is another paragraph in the div.</p>
+	</div>
+	<button id="btn1">Remova o elemento div</button>
+
+	<!-- The jQuery empty() method removes the child elements of the selected element(s). -->
+	<div id="div2" style="height: 100px; width: 300px; border: 1px solid black; background-color: yellow; padding: 2px;">
+		<p>This is some text in the div.</p>
+		<p>This is a paragraph in the div.</p>
+		<p>This is another paragraph in the div.</p>
+	</div>
+	<button id="btn2">Remova o elemento div</button>
+
+	<!-- The jQuery remove() method also accepts one parameter, which allows you to filter the elements to be removed.
+	The parameter can be any of the jQuery selector syntaxes. -->
+	<p class="test test1">This is another paragraph.</p>
+	<p class="test test2">This is another paragraph.</p>
+	<p class="demo">This is another paragraph.</p>
+	<button id="btn3">Remova elementos com parâmetros</button>
+</body>
+</html>
